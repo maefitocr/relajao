@@ -19,11 +19,11 @@ El sistema recomienda alternativas, pero el usuario conserva el control de sus d
 | Fase | Estado |
 |---|---|
 | 1. Discovery funcional | ✅ Completado — [Discovery v1.0](docs/01-discovery/discovery-v1.0.md) (línea base, 15-nov-2026) |
-| 2. Arquitectura y diseño técnico | ⏸️ Sin iniciar |
+| 2. Arquitectura y diseño técnico | 🔄 En curso — contexto y responsabilidades ([ARC-001](docs/05-arquitectura/ARC-001-contexto-y-responsabilidades.md)), decisión de stack ([DEC-001](docs/05-arquitectura/DEC-001-stack-y-estilo.md)) y arquitectura técnica ([ARC-002](docs/05-arquitectura/ARC-002-arquitectura-tecnica.md)) aprobados el 16-nov-2026 |
 | 3. Desarrollo del MVP | ⏸️ Sin iniciar |
 | 4. Pruebas y validación | ⏸️ Sin iniciar |
 
-**Stack tecnológico:** por definir en la fase de arquitectura.
+**Arquitectura y stack** ([DEC-001](docs/05-arquitectura/DEC-001-stack-y-estilo.md)): monolito modular con Clean Architecture · TypeScript de extremo a extremo · NestJS (Fastify) · React + Vite · PostgreSQL + Prisma · contrato Zod/OpenAPI · monorepo pnpm + Turborepo · Docker + GitHub Actions.
 
 ## Alcance del MVP (resumen)
 
