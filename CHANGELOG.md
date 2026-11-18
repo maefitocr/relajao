@@ -6,7 +6,15 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/
 
 ## [Unreleased]
 
+### Changed
+
+- Revisión documental del 18-11-2026: estados y enlaces cruzados actualizados en los índices, SPEC y arquitectura; aprobación, versionado e integración se distinguen. Discovery y DEC-001 permanecen intactos. Los controles de CI de ARC-002 se describen como previstos, no implementados.
+
+- Aprobados por el responsable del producto el 18-11-2026: ARC-001 v1.1 con los seis criterios del Plan 1, contexto C4 nivel 1 ajustado y nueva vista de contenedores C4 nivel 2; sin nuevas decisiones de arquitectura. Pendiente commit en feature_initialDocs (CA-06).
+
 ### Added
+
+- Modelo de dominio inicial v0.1, aprobado explícitamente el 18-11-2026: catálogo de conceptos, diagramas Mermaid con cardinalidades y estados, reglas DM-01–DM-31 trazadas a F01–F07 y análisis pendiente PA-01–PA-09. Sin diseño físico ni implementación; pendiente commit (CA-08 parcial).
 
 - `docs/05-arquitectura/` con el contexto y las responsabilidades del sistema (ARC-001: `architecture-context.md` y `responsibilities.md`), la decisión de estilo arquitectónico y stack (`DEC-001`) y la arquitectura técnica con capas, módulos y monorepo (`ARC-002`). Aprobados el 16-11-2026.
 - `docs/02-requisitos/` con la especificación funcional integradora (`SPEC.md`) y los requisitos por funcionalidad F01–F07, extraídos de la línea base del Discovery v1.0 con cabecera de estado, reglas de negocio, criterios de aceptación y diagramas Mermaid.

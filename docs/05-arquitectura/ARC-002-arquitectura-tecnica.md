@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | Identificador | ARC-002 |
-| Versión | 1.0 |
+| Versión | 1.0; referencias y estado de versionado actualizados el 18-nov-2026 |
 | Estado | **Aprobado** — 16-nov-2026 |
 | Contenido | Capas, módulos, tecnologías, estructura del monorepo y reglas de dependencia |
 | Base funcional | [ARC-001](./ARC-001-contexto-y-responsabilidades.md) (`architecture-context.md` + `responsibilities.md`) |
@@ -40,7 +40,7 @@ ARC-001 definió el *qué* (responsabilidades funcionales, neutral en tecnologí
 
 ## 2. Vista general del sistema
 
-Un solo contenedor desplegable que sirve la API y los estáticos del frontend, contra una base de datos PostgreSQL gestionada.
+Un solo contenedor Docker de aplicación sirve la API y los estáticos del frontend, contra una base de datos PostgreSQL gestionada. La vista [C4 nivel 2](architecture-containers.md) distingue las unidades de ejecución (web y API) del empaquetado Docker; el [contexto C4 nivel 1](architecture-context.md#2-diagrama-de-contexto--c4-nivel-1) muestra el límite del sistema. El siguiente gráfico conserva la vista técnica general, incluidos móvil futuro y CI/CD.
 
 ```mermaid
 graph TB
@@ -266,7 +266,7 @@ Obsérvese la separación: la **regla** (qué transición es válida) está en e
 
 ## 7. Reglas de dependencia y su verificación
 
-El diseño no depende de la disciplina: **se verifica en CI y el build falla si se rompe.**
+El diseño prevé verificación automática en CI: **el build deberá fallar si se rompe una frontera.** Esta sección define controles previstos; todavía no existe implementación ni pipeline en el repositorio.
 
 | Regla | Herramienta que la hace cumplir |
 |---|---|
@@ -277,7 +277,7 @@ El diseño no depende de la disciplina: **se verifica en CI y el build falla si 
 | Las reglas de dominio funcionan sin infraestructura | Pruebas unitarias (Vitest) sobre `domain/` sin mocks de BD |
 | La API cumple el contrato | Pruebas de integración (Testcontainers + PostgreSQL efímero) |
 
-`\.dependency-cruiser.cjs` queda versionado en la raíz: cualquier PR que viole una frontera falla automáticamente. Es el equivalente a los `ArchitectureTests` del mundo .NET.
+Se prevé versionar `.dependency-cruiser.cjs` en la raíz y configurar el pipeline para rechazar PRs que violen las fronteras. Esos archivos y controles aún no están implementados. Es el equivalente a los `ArchitectureTests` del mundo .NET.
 
 ---
 
@@ -311,6 +311,8 @@ El diagrama neutral de ARC-001 sigue siendo válido: este documento lo materiali
 |---|---|
 | DEC-001 (estilo y stack) aprobada | ✅ 16-nov-2026 |
 | ARC-002 revisado y aprobado | ✅ 16-nov-2026 |
-| Versionado en Git (commit + PR) | ⏳ Pendiente |
+| Versión original en Git | ✅ Disponible en feature_initialDocs, commit 26fd8ca |
+| Ajustes documentales del 18-nov-2026 | ⏳ Locales, pendientes de commit |
+| PR e integración en main | ⏳ Pendientes; main conserva lo oficial y terminado |
 
 **La implementación (fase 3) no inicia hasta la autorización explícita del responsable del producto.**

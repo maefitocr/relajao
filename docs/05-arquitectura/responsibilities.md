@@ -3,7 +3,7 @@
 | Campo | Valor |
 |---|---|
 | Tarea | [ARC-001](./ARC-001-contexto-y-responsabilidades.md) |
-| Versión | 1.0 |
+| Versión | 1.0; referencias y estados actualizados el 18-nov-2026 |
 | Estado | **Aprobado** — 16-nov-2026 |
 | Contenido | Tabla de responsabilidades, dependencias funcionales y referencias al Discovery |
 | Complemento | [`architecture-context.md`](./architecture-context.md) — diagramas de contexto y vista consolidada |
@@ -31,7 +31,7 @@ Las siete funcionalidades aprobadas (F01–F07) se organizan en cinco agrupacion
 |---|---|---|---|
 | **Organización del trabajo** | F01, F03 | Fuente única de **qué** existe por hacer y **cómo se clasifica** | No reserva tiempo ni decide cuándo se hace algo (eso es de Planificación) |
 | **Planificación del tiempo** | F02 | Fuente única de **cuándo**: agenda, disponibilidad, conflictos y sugerencias | No cambia estados de tareas: planificar y ejecutar son independientes (F02-CA07) |
-| **Visibilidad y motivación** | F04, F06 | **Presentar y reconocer**: el día de un vistazo y los logros alcanzados | No posee motor propio: el Dashboard consulta a F01/F02/F03/F06 y no recalcula ni replanifica (F04-D25, límite funcional) |
+| **Visibilidad y motivación** | F04, F06 | **Presentar y reconocer**: el día de un vistazo y los logros alcanzados | El Dashboard no posee motor propio: consulta a F01/F02/F03/F06; F06 sí calcula sus indicadores de motivación (F04-D25, límite funcional) |
 | **Avisos internos** | F05 | **Señalar lo relevante en el momento oportuno**, dentro de la aplicación | No usa canales externos (E04) ni acumula avisos obsoletos (F05-D04) |
 | **Cuenta y preferencias** | F07 | **Identidad del usuario y preferencias transversales**: perfil, zona horaria, sesión | No duplica motores: la disponibilidad se valida con reglas de F02 y la meta se calcula en F06 (RN-F07-09, RN-F07-11) |
 
@@ -53,7 +53,7 @@ Las siete funcionalidades aprobadas (F01–F07) se organizan en cinco agrupacion
 
 ## 3. Dependencias funcionales (R1–R12)
 
-Cada dependencia describe una interacción funcional con su propósito. **No se impone ningún protocolo ni mecanismo técnico**: cómo se materializa cada relación se decidirá en la arquitectura técnica.
+Cada dependencia describe una interacción funcional con su propósito. **No se impone ningún protocolo ni mecanismo técnico**: su materialización técnica está descrita en [ARC-002](ARC-002-arquitectura-tecnica.md), conforme a [DEC-001](DEC-001-stack-y-estilo.md).
 
 | Ref | Dependencia | Propósito | Referencia en el Discovery |
 |---|---|---|---|
@@ -79,7 +79,7 @@ Cada dependencia describe una interacción funcional con su propósito. **No se 
 El Discovery exige conservar la información entre sesiones (S07; RN-08 de F01; RN-F03-68 de F03; RN-F07-15 de F07). Todas las agrupaciones confían su información a un almacenamiento persistente único representado en los diagramas.
 
 - **Qué se conserva:** tareas, subtareas, recurrencias, estados y fechas de finalización; bloques, eventos y disponibilidad; áreas, proyectos, prioridades y favoritos; avisos vigentes y su estado de lectura; puntos, insignias, rachas e historial de siete días; perfil, zona horaria y preferencias.
-- **Qué no se decide aquí:** motor de base de datos, estrategia de almacenamiento, modelo de datos físico ni mecanismo de respaldo. Son decisiones de la arquitectura técnica (pendiente de aprobación).
+- **Qué no se decide aquí:** motor de base de datos, estrategia de almacenamiento, modelo de datos físico ni mecanismo de respaldo. La selección de PostgreSQL y Prisma ya está aprobada en [DEC-001](DEC-001-stack-y-estilo.md) y [ARC-002](ARC-002-arquitectura-tecnica.md); el modelo físico detallado y los respaldos permanecen pendientes de especificación.
 
 ---
 
@@ -101,7 +101,7 @@ S09 (validación con usuarios reales) y S10 (criterios de aceptación) son crite
 ### Consistencia verificada
 
 - Las siete funcionalidades representadas corresponden exactamente a F01–F07 aprobadas; no se inventó ninguna capacidad nueva.
-- Los elementos fuera del límite del MVP corresponden a exclusiones aprobadas E01–E12: el diagrama de contexto muestra las seis con interacción potencial de frontera (E01, E02, E04, E06, E09, E10); las restantes (E03, E05, E07, E08, E11, E12) acotan capacidades internas y figuran en la tabla anterior.
+- Los elementos fuera del límite del MVP corresponden a exclusiones aprobadas E01–E12: la descripción que acompaña al contexto enumera las seis exclusiones de frontera sin dibujar relaciones externas inexistentes (E01, E02, E04, E06, E09, E10); las restantes (E03, E05, E07, E08, E11, E12) acotan capacidades internas y figuran en la tabla anterior.
 - Las dependencias R1–R12 provienen de decisiones y reglas aprobadas, citadas una a una en la sección 3.
 - No se conocen contradicciones con el Discovery funcional aprobado.
 
@@ -113,7 +113,7 @@ Decisiones todavía abiertas, identificadas sin bloquear el cierre de este docum
 
 | # | Duda | Impacto en este documento | Origen |
 |---|---|---|---|
-| 1 | **Autenticación y seguridad.** F07 presupone una sesión autenticada (gestión de cuenta y cierre de sesión), pero los mecanismos no se han seleccionado | La sesión se representa como parte de "Cuenta y preferencias" sin indicar mecanismo | Discovery §10, punto 6 |
+| 1 | **Autenticación y seguridad.** F07 presupone una sesión autenticada (gestión de cuenta y cierre de sesión), y DEC-001 ya selecciona Argon2 y sesión con cookie HttpOnly; los detalles de seguridad permanecen pendientes | Mecanismo definido en DEC-001 §2; esta vista funcional permanece neutral | Discovery §10, punto 6 |
 | 2 | **Referencia D14/"F07" en F02.** La matriz de F02 cita "F07" como contrato futuro para eventos externos; F07 final es Configuración y las integraciones están excluidas (E01) | Los calendarios externos quedan fuera del MVP; incorporar ese contrato requeriría una solicitud de cambio | Discovery §10, punto 5 |
 | 3 | **Alcance del primer despliegue (F04).** F04 se aprobó completo, pero el orden de entrega incremental no está definido | Los diagramas representan el MVP funcional completo (P0 + P1), no un plan de entrega | Discovery §10, punto 4 |
 | 4 | **Selección de tecnologías y estilo arquitectónico.** Resuelta: registrada en [DEC-001](./DEC-001-stack-y-estilo.md) y materializada en [ARC-002](./ARC-002-arquitectura-tecnica.md) | Ninguno: este documento es deliberadamente neutral | Resuelta el 16-nov-2026 |
@@ -121,4 +121,4 @@ Decisiones todavía abiertas, identificadas sin bloquear el cierre de este docum
 
 ---
 
-*RELAJAO · ARC-001 v1.0 · Generado a partir del Discovery funcional v1.0 sin decisiones técnicas nuevas.*
+*RELAJAO · Complemento funcional de ARC-001 · Generado a partir del Discovery funcional v1.0 sin decisiones técnicas nuevas.*

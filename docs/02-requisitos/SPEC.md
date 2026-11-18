@@ -3,9 +3,9 @@
 | Campo | Valor |
 |---|---|
 | Estado | **Consolidado** — derivado íntegramente de la línea base aprobada; no introduce decisiones nuevas |
-| Versión | 1.0 |
+| Versión | 1.0; referencias de estado actualizadas el 18-nov-2026 |
 | Línea base | [Discovery funcional v1.0](../01-discovery/discovery-v1.0.md) (cerrado el 15-nov-2026) |
-| Alcance | Solo definición funcional; la arquitectura está pendiente de autorización |
+| Alcance | Solo definición funcional; arquitectura documentada en [ARC-002](../05-arquitectura/ARC-002-arquitectura-tecnica.md) y [DEC-001](../05-arquitectura/DEC-001-stack-y-estilo.md), aprobadas el 16-nov-2026 |
 
 Este documento es el **integrador** de los requisitos: presenta el modelo conceptual, los principios transversales y la trazabilidad entre funcionalidades. El detalle de cada funcionalidad vive en su propio archivo F01–F07; este documento enlaza, no duplica.
 
@@ -14,6 +14,8 @@ Este documento es el **integrador** de los requisitos: presenta el modelo concep
 RELAJAO es una aplicación de productividad personal que ayuda a organizar responsabilidades, planificar el tiempo y mantener la constancia sin generar sobrecarga innecesaria. Combina **organización** (tareas, proyectos, áreas), **planificación** (calendario, bloques, disponibilidad) y **motivación** (progreso, metas, rachas). El sistema recomienda; **el usuario decide**.
 
 ## 2. Modelo conceptual
+
+El [modelo de dominio inicial v0.1](../05-arquitectura/domain-model.md), aprobado el 18-nov-2026, desarrolla estos conceptos con cardinalidades, estados y reglas trazables. No sustituye la línea base aprobada.
 
 ```mermaid
 graph TD
@@ -37,7 +39,7 @@ Invariantes del modelo:
 - Un bloque **referencia** trabajo existente; nunca crea tareas. Planificación y estado son independientes: un bloque pasado no implica ejecución.
 - Las ocurrencias recurrentes (de tareas y eventos) son independientes entre sí.
 - Las subtareas no cuentan en el progreso de proyectos ni en la gamificación; solo las tareas principales.
-- La eliminación es **lógica** (papelera con restauración); la definitiva no es parte del flujo habitual del MVP.
+- La eliminación de **tareas** es lógica (papelera con restauración); la definitiva no es parte del flujo habitual del MVP. Las áreas y los proyectos siguen sus reglas específicas de F03.
 
 ## 3. Principios transversales
 

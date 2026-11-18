@@ -1,51 +1,52 @@
-# ARC-001 — Diagrama de arquitectura y responsabilidades · Registro de la tarea
+# ARC-001 — Contexto y contenedores iniciales · Plan 1
 
 | Campo | Valor |
 |---|---|
 | Identificador | ARC-001 |
-| Versión | 1.0 |
-| Estado | **Aprobado** — 16-nov-2026 |
-| Objetivo | Representar los límites de RELAJAO, sus responsabilidades funcionales y sus relaciones, según el Discovery MVP v1.0 aprobado |
-| Alcance | Esta tarea **no** define la arquitectura técnica (ver [DEC-001](./DEC-001-stack-y-estilo.md) y [ARC-002](./ARC-002-arquitectura-tecnica.md)) |
+| Versión | 1.1 |
+| Estado | **Aprobado** — 18-nov-2026; pendiente versionar esta revisión |
+| Antecedente | Versión 1.0 registrada como aprobada el 16-nov-2026; revisión 1.1 aprobada explícitamente por el responsable del producto el 18-nov-2026 |
+| Objetivo | Visualizar actores, límites y responsabilidades técnicas mediante C4 niveles 1 y 2 |
+| Alcance | Documentar Discovery, ARC-002 y DEC-001 sin nuevas decisiones arquitectónicas ni implementación |
 
----
+## 1. Documentos
 
-## Documentos
+- [architecture-context.md](architecture-context.md) §2: contexto C4 nivel 1; persona, sistema e interacciones.
+- [architecture-containers.md](architecture-containers.md): contenedores C4 nivel 2; web, API, PostgreSQL, responsabilidades y relaciones.
+- [responsibilities.md](responsibilities.md): responsabilidades y dependencias funcionales R1–R12.
+- [ARC-002](ARC-002-arquitectura-tecnica.md) y [DEC-001](DEC-001-stack-y-estilo.md): arquitectura y decisiones que sustentan las vistas.
 
-| Archivo | Contenido |
-|---|---|
-| [`architecture-context.md`](./architecture-context.md) | Diagramas Mermaid con límites, actores y relaciones principales (contexto + vista funcional consolidada) |
-| [`responsibilities.md`](./responsibilities.md) | Tabla de responsabilidades, dependencias R1–R12 y referencias al Discovery |
+## 2. Criterios de aceptación del Plan 1
 
----
-
-## Checklist de criterios de aceptación
+Esta matriz adopta los seis criterios del plan del responsable del producto. Sustituye el checklist de diez criterios para evaluar esta revisión, sin cambiar decisiones aprobadas.
 
 | CA | Criterio | Estado | Evidencia |
 |---|---|---|---|
-| CA-01 | Contexto del sistema | ✅ Verificado | `architecture-context.md` §2: RELAJAO central, usuario único e interacciones |
-| CA-02 | Límites del MVP | ✅ Verificado | `architecture-context.md` §2 (exclusiones de frontera); `responsibilities.md` §5 (restantes) |
-| CA-03 | Responsabilidades funcionales | ✅ Verificado | `responsibilities.md` §1–2: F01–F07 completas en cinco agrupaciones, sin capacidades nuevas |
-| CA-04 | Separación de responsabilidades | ✅ Verificado | `responsibilities.md` §1: responsabilidad principal y columna "qué NO hace" |
-| CA-05 | Relaciones entre capacidades | ✅ Verificado | `responsibilities.md` §3: R1–R12 con propósito, sin protocolos técnicos |
-| CA-06 | Persistencia de información | ✅ Verificado | `responsibilities.md` §4: necesidad sin motor ni estrategia |
-| CA-07 | Trazabilidad del Discovery | ✅ Verificado | `responsibilities.md` §5: mapeo a F01–F07, E01–E12 y S01–S10 |
-| CA-08 | Claridad visual | ✅ Verificado | `architecture-context.md` §4: leyenda; nombres del Discovery; vista consolidada |
-| CA-09 | Neutralidad tecnológica | ✅ Verificado | Ambos documentos sin menciones a lenguajes, frameworks, patrones o despliegue; lo técnico vive en DEC-001 y ARC-002 |
-| CA-10 | Documentación y revisión | ⏳ Parcial | Dudas identificadas (`responsibilities.md` §6), sin contradicciones conocidas; **pendiente commit y PR** |
+| CA-01 | El diagrama de contexto identifica al usuario, RELAJAO y las interacciones externas aplicables al MVP | Aprobado — 18-nov-2026 | Contexto §2: persona y sistema; E01/E04/E09 explican la ausencia de sistemas externos conectados |
+| CA-02 | El diagrama de contenedores identifica las unidades ejecutables y almacenes de datos previstos, sin confundir módulos lógicos con contenedores C4 | Aprobado — 18-nov-2026 | Contenedores §1–2: web en navegador, API en servidor y PostgreSQL; diferencia entre C4, Docker y módulos |
+| CA-03 | Cada contenedor tiene una responsabilidad clara | Aprobado — 18-nov-2026 | Contenedores §3: responsabilidad y límite de web, API y base de datos |
+| CA-04 | Las relaciones y dependencias están documentadas | Aprobado — 18-nov-2026 | Contenedores §2–3: R1–R4 con origen, destino, propósito y tecnología; dependencias internas en responsibilities.md y ARC-002 |
+| CA-05 | Los diagramas son consistentes con ARC-002 y DEC-001, o señalan expresamente las decisiones todavía no aprobadas | Aprobado — 18-nov-2026 | Contenedores §4: trazabilidad con arquitectura, F02/F04/F05/F07, S07 y exclusiones; alojamiento concreto pendiente |
+| CA-06 | Ambos diagramas están versionados en el repositorio | Pendiente para esta revisión | Las vistas anteriores ya están en feature_initialDocs. La revisión 1.1 y el nuevo documento de contenedores son cambios locales sin commit |
 
----
+## 3. Coherencia revisada
 
-## Definition of Done
+- Contexto: RELAJAO es un único sistema; la persistencia aparece en nivel 2.
+- Contenedores: web, API y PostgreSQL; los siete módulos siguen dentro del monolito. Docker representa empaquetado.
+- La API sirve los archivos estáticos y usa una base PostgreSQL gestionada, conforme a ARC-002 §2.
+- El Dashboard presenta información y acciones; las reglas permanecen en los módulos responsables.
+- Se mantiene la confirmación para sugerencias y la independencia entre planificación y ejecución de tareas.
+- Sin integraciones externas, canales externos de notificación, colaboración ni móvil nativo en el MVP.
+- Las dudas funcionales del Discovery §10 permanecen abiertas; no se resuelven mediante supuestos en las vistas.
+
+## 4. Condiciones de cierre
 
 | Condición | Estado |
 |---|---|
-| Los 10 criterios de aceptación verificados | ✅ 16-nov-2026 |
-| Ambos documentos versionados en Git | ⏳ En working copy; pendiente commit y PR |
-| Sin contradicciones conocidas con el Discovery funcional aprobado | ✅ Verificado (`responsibilities.md` §5) |
-| Decisiones abiertas identificadas, sin bloquear el cierre | ✅ `responsibilities.md` §6 (la selección tecnológica quedó resuelta en DEC-001) |
-| Revisado y aprobado explícitamente | ✅ 16-nov-2026 |
+| Diagramas Mermaid y descripciones disponibles localmente | Disponible |
+| CA-01 a CA-05 documentados y trazados | Aprobados — 18-nov-2026 |
+| Revisión explícita del responsable del producto | Aprobada — 18-nov-2026 |
+| Revisión 1.1 y nueva vista versionadas en feature_initialDocs | Pendiente; cambios locales sin commit |
+| Publicación o integración en main | Fuera de esta entrega local |
 
----
-
-*RELAJAO · ARC-001 v1.0 · Los documentos se generaron a partir del Discovery funcional v1.0 sin introducir decisiones técnicas nuevas.*
+El trabajo se realiza siempre sobre la rama feature; main representa lo oficial y terminado. El responsable del producto aprobó explícitamente los últimos cambios el 18-nov-2026. Esta aprobación cubre el contenido; CA-06 sigue pendiente hasta registrar los cambios en Git. La integración en main no es necesaria para cumplir CA-06: ambos diagramas deben quedar versionados en feature.
