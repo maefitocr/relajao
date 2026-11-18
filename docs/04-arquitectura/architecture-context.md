@@ -4,7 +4,7 @@
 |---|---|
 | Tarea | [ARC-001](./ARC-001-contexto-y-responsabilidades.md) |
 | Versión | 1.1 |
-| Estado | **Aprobado** — 18-nov-2026; pendiente versionar esta revisión |
+| Estado | **Aprobado** — 18-nov-2026; versionado en feature_initialDocs, commit 8b65917 |
 | Contenido | Diagramas Mermaid con límites del sistema, actores y relaciones principales |
 | Complemento | [`responsibilities.md`](./responsibilities.md) — tabla de responsabilidades, dependencias y referencias |
 | Fuente | [Discovery funcional v1.0](../01-discovery/discovery-v1.0.md) (línea base cerrada el 15-nov-2026) |

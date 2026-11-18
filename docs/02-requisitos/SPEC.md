@@ -2,12 +2,14 @@
 
 | Campo | Valor |
 |---|---|
-| Estado | **Consolidado** — derivado íntegramente de la línea base aprobada; no introduce decisiones nuevas |
+| Estado | **Aprobado como documento consolidado** — 18-nov-2026; derivado de la línea base, sin nuevas decisiones funcionales |
 | Versión | 1.0; referencias de estado actualizadas el 18-nov-2026 |
 | Línea base | [Discovery funcional v1.0](../01-discovery/discovery-v1.0.md) (cerrado el 15-nov-2026) |
-| Alcance | Solo definición funcional; arquitectura documentada en [ARC-002](../05-arquitectura/ARC-002-arquitectura-tecnica.md) y [DEC-001](../05-arquitectura/DEC-001-stack-y-estilo.md), aprobadas el 16-nov-2026 |
+| Alcance | Solo definición funcional; arquitectura documentada en [ARC-002](../04-arquitectura/ARC-002-arquitectura-tecnica.md) y [DEC-001](../04-arquitectura/DEC-001-stack-y-estilo.md), aprobadas el 16-nov-2026 |
 
 Este documento es el **integrador** de los requisitos: presenta el modelo conceptual, los principios transversales y la trazabilidad entre funcionalidades. El detalle de cada funcionalidad vive en su propio archivo F01–F07; este documento enlaza, no duplica.
+
+El [backlog de incrementos e historias](../03-planificacion/incrementos-historias.md) ordena las entregas y su aceptación; el [SPEC técnico](../06-construccion/SPEC-TECNICO.md) desarrolla su construcción, con decisiones nuevas pendientes señaladas explícitamente.
 
 ## 1. Visión
 
@@ -15,7 +17,7 @@ RELAJAO es una aplicación de productividad personal que ayuda a organizar respo
 
 ## 2. Modelo conceptual
 
-El [modelo de dominio inicial v0.1](../05-arquitectura/domain-model.md), aprobado el 18-nov-2026, desarrolla estos conceptos con cardinalidades, estados y reglas trazables. No sustituye la línea base aprobada.
+El [modelo de dominio inicial v0.1](../04-arquitectura/domain-model.md), aprobado el 18-nov-2026, desarrolla estos conceptos con cardinalidades, estados y reglas trazables. No sustituye la línea base aprobada.
 
 ```mermaid
 graph TD

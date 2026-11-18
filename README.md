@@ -1,53 +1,92 @@
 # RELAJAO
 
-> Plataforma de productividad personal para organizar tareas, proyectos y tiempo, con planificación inteligente, seguimiento del progreso y enfoque **Keep Simple**.
+Organiza tus responsabilidades, planifica el tiempo disponible y reconoce tus avances sin añadir más carga mental.
 
-## Visión
-
-RELAJAO ayuda a centralizar responsabilidades, planificar el tiempo de forma realista y mantener la constancia sin generar sobrecarga. Combina tres elementos:
-
-- **Organización:** tareas, proyectos y áreas de vida en un solo lugar.
-- **Planificación:** calendario, bloques de trabajo, disponibilidad y sugerencias ante conflictos.
-- **Motivación:** progreso visible, metas, rachas y gamificación ligera.
-
-El sistema recomienda alternativas, pero el usuario conserva el control de sus decisiones.
-
-> **Principio rector:** no se trata de hacer más cosas, sino de organizarse mejor, avanzar en lo que realmente importa y reconocer los logros sin sentirse abrumado.
+RELAJAO reúne tareas, proyectos y áreas de vida, un calendario con sugerencias que requieren tu confirmación y progreso con gamificación ligera. **El sistema recomienda; el usuario decide.** Durante el Discovery el proyecto se llamó DITSO.
 
 ## Estado del proyecto
 
-| Fase | Estado |
+**18 de noviembre de 2026 · Preparación de construcción.** Discovery, arquitectura, modelo de dominio e historias aprobados. El SPEC técnico está incorporado como documento de construcción; sus decisiones nuevas pendientes se identifican expresamente. Desarrollo, pruebas del producto y piloto todavía no han iniciado.
+
+| Entregable | Estado |
 |---|---|
-| 1. Discovery funcional | ✅ Completado — [Discovery v1.0](docs/01-discovery/discovery-v1.0.md) (línea base, 15-nov-2026) |
-| 2. Arquitectura y diseño técnico | 🔄 En curso — contexto y responsabilidades ([ARC-001](docs/05-arquitectura/ARC-001-contexto-y-responsabilidades.md)), decisión de stack ([DEC-001](docs/05-arquitectura/DEC-001-stack-y-estilo.md)) y arquitectura técnica ([ARC-002](docs/05-arquitectura/ARC-002-arquitectura-tecnica.md)) aprobados el 16-nov-2026; contexto y contenedores C4 (ARC-001 v1.1) aprobados el 18-nov-2026, con cambios locales pendientes de commit |
-| 3. Desarrollo del MVP | ⏸️ Sin iniciar |
-| 4. Pruebas y validación | ⏸️ Sin iniciar |
+| Discovery funcional v1.0 | Cerrado y congelado el 15-nov-2026 |
+| Arquitectura y stack — ARC-002 / DEC-001 | Aprobados el 16-nov-2026 |
+| Contexto y contenedores C4 — ARC-001 v1.1 | Aprobados; versionados en feature, commit `8b65917` |
+| Modelo de dominio v0.1 | Aprobado; versionado en feature, commit `8b65917` |
+| Ocho incrementos y 35 historias de usuario | Documentación aprobada el 18-nov-2026; historias pendientes de construcción |
+| SPEC técnico de construcción v0.2 | Documento aprobado el 18-nov-2026; propuestas DTP y puntos abiertos pendientes de decisión |
 
-**Arquitectura y stack** ([DEC-001](docs/05-arquitectura/DEC-001-stack-y-estilo.md)): monolito modular con Clean Architecture · TypeScript de extremo a extremo · NestJS (Fastify) · React + Vite · PostgreSQL + Prisma · contrato Zod/OpenAPI · monorepo pnpm + Turborepo · Docker + GitHub Actions.
+La aprobación de documentos no significa que las historias estén implementadas ni resuelve por sí sola los puntos abiertos señalados. Las actualizaciones documentales locales más recientes están pendientes de commit; no se afirma integración en `main` sin comprobarla.
 
-## Alcance del MVP (resumen)
+## Insumos para construir
 
-Siete funcionalidades aprobadas: gestión de tareas (F01), calendario y planificación (F02), áreas de vida y proyectos (F03), dashboard (F04), notificaciones internas (F05), progreso y motivación (F06) y configuración (F07). Quedan explícitamente fuera del MVP las integraciones externas, apps móviles nativas, notificaciones externas y la analítica avanzada, entre otras exclusiones (E01–E12).
+| Necesitás conocer | Documento de referencia |
+|---|---|
+| Qué entrega construir y cómo aceptarla | [Incrementos, historias y criterios de aceptación](docs/03-planificacion/incrementos-historias.md) |
+| Cómo construirla: módulos, datos, API, seguridad, interfaz y pruebas | [SPEC técnico](docs/06-construccion/SPEC-TECNICO.md) |
+| Qué significan los conceptos y qué reglas deben preservarse | [Modelo de dominio](docs/04-arquitectura/domain-model.md) |
+| Qué comportamiento funcional está aprobado | [SPEC funcional](docs/02-requisitos/SPEC.md) y [requisitos F01–F07](docs/README.md#requisitos-funcionales) |
+| Qué arquitectura y tecnologías son vinculantes | [DEC-001](docs/04-arquitectura/DEC-001-stack-y-estilo.md) y [ARC-002](docs/04-arquitectura/ARC-002-arquitectura-tecnica.md) |
+| Qué alcance quedó congelado y qué está excluido | [Discovery funcional v1.0](docs/01-discovery/discovery-v1.0.md) |
 
-El detalle completo — decisiones, reglas de negocio, criterios de aceptación, exclusiones y criterios de éxito — está en la [documentación](docs/README.md).
+**Recorrido de construcción:** elegir historia → leer sus criterios y reglas originales → revisar su sección técnica y las decisiones que la afectan → resolver decisiones pendientes antes de la parte afectada → implementar y probar → demostrar el incremento → versionar y revisar mediante PR.
 
-## Documentación
+El SPEC técnico desarrolla la construcción; las historias ordenan el trabajo y describen el resultado para el usuario. Ninguno reemplaza los criterios originales del Discovery. Si existe contradicción, se registra y resuelve explícitamente antes de construir el comportamiento afectado.
 
-La documentación sigue el modelo **Docs as Code**: vive en [`docs/`](docs/README.md), se versiona con el código y los cambios de alcance se registran como decisiones explícitas, sin reescribir la línea base aprobada.
+## Entregas del MVP
 
-## Estado documental vigente — 18-nov-2026
+| Incremento | Resultado para el usuario | Historias |
+|---|---|---|
+| I01 | Capturar y ejecutar pendientes | HU-01–07 |
+| I02 | Organizar trabajo y rutinas | HU-08–13 |
+| I03 | Construir una agenda realista | HU-14–17 |
+| I04 | Ajustar planificación con ayuda | HU-18–22 |
+| I05 | Decidir qué hacer hoy desde el Dashboard | HU-23–27 |
+| I06 | Atender avisos internos relevantes | HU-28–30 |
+| I07 | Reconocer progreso y constancia | HU-31–34 |
+| I08 | Validar el MVP con usuarios durante al menos siete días | HU-35 |
 
-- `main` contiene lo oficial y terminado. El trabajo se realiza siempre sobre `feature_initialDocs`, con las versiones más recientes de los entregables pendientes.
-- La aprobación del contenido se distingue del versionado: los últimos diagramas C4 están aprobados; su registro en Git (CA-06) permanece pendiente.
-- El Discovery conserva el estado histórico al cierre del 15-nov-2026. Sus referencias a arquitectura sin iniciar describen ese momento. El estado actual se consulta aquí y en el [índice documental](docs/README.md).
-- El [modelo de dominio inicial v0.1](docs/05-arquitectura/domain-model.md) del Plan 2 está aprobado el 18-nov-2026, pendiente de commit. La implementación continúa sin iniciar.
+Disponibilidad de referencia: **6 horas semanales**, martes, jueves y sábado, en sesiones de 2 horas. Las fechas de entrega quedan pendientes de estimar las historias; no hay un plazo final reconfirmado. El [backlog](docs/03-planificacion/incrementos-historias.md) contiene alcance, dependencias y aceptación de cada incremento.
 
-## Principios de trabajo
+## Arquitectura aprobada
 
-- **Keep Simple:** ante la duda, la capacidad avanzada se pospone a una iteración posterior.
-- **Línea base congelada:** el Discovery v1.0 no se modifica; los cambios se registran como solicitudes de cambio.
-- **Entrega incremental:** primero un producto desplegable pequeño; las mejoras llegan después.
+Monolito modular con Clean Architecture dentro de cada módulo. La web se ejecuta en el navegador; un contenedor Docker sirve los archivos web y la API; PostgreSQL conserva los datos.
 
-## Licencia
+| Parte | Selección registrada en DEC-001 |
+|---|---|
+| Lenguaje | TypeScript estricto |
+| API | NestJS 11 + Fastify |
+| Web | React 18 + Vite + TanStack Query |
+| Contratos | Zod + OpenAPI |
+| Datos | PostgreSQL 16 + Prisma |
+| Acceso | Argon2 y sesión con cookie HttpOnly |
+| Repositorio y operación | pnpm workspaces, Turborepo, Docker y GitHub Actions |
 
-[MIT](LICENSE)
+Estas son las selecciones documentadas, no dependencias ya instaladas. Los detalles adicionales del SPEC marcados DTP siguen sujetos a decisión; no se cambia el stack por incorporar este documento.
+
+## Estructura actual
+
+```text
+docs/
+├── 01-discovery/       Línea base congelada del producto
+├── 02-requisitos/      SPEC funcional y F01–F07
+├── 03-planificacion/   Incrementos e historias de usuario
+├── 04-arquitectura/    Decisiones, dominio y diagramas C4
+├── 05-prototipo/       Prototipo de interfaz
+└── 06-construccion/    SPEC técnico aprobado y guía UI
+```
+
+El código, las migraciones, los comandos de ejecución y el pipeline todavía no existen en este checkout. La estructura de código prevista está en [ARC-002](docs/04-arquitectura/ARC-002-arquitectura-tecnica.md#5-estructura-del-monorepo); se incorporará conforme se construyan las historias. Los comandos del SPEC son objetivos de implementación, no instrucciones de arranque disponibles hoy.
+
+El [SPEC técnico aprobado](docs/06-construccion/SPEC-TECNICO.md) tiene una única ubicación en construcción. La [guía UI](docs/06-construccion/GUIA-CONSTRUCCION-UI.md) y el [prototipo](docs/05-prototipo/prototipo.html) son propuestas visuales; sus estados no cambian por reorganizar carpetas.
+
+## Forma de trabajo
+
+- Se trabaja siempre en `feature_initialDocs`. `main` conserva lo oficial y terminado.
+- Cada historia se acepta mediante su comportamiento observable y los criterios originales aplicables; aprobar el backlog no marca historias como terminadas.
+- Discovery v1.0 permanece congelado. Cambios funcionales o arquitectónicos requieren registro y aprobación explícitos.
+- Las decisiones DTP se revisan en el [SPEC técnico, sección 17](docs/06-construccion/SPEC-TECNICO.md#17-decisiones-técnicas-propuestas-y-puntos-abiertos). Las dudas del dominio mantienen su trazabilidad.
+- El MVP conserva F01–F07 y las exclusiones E01–E12. No incluye integraciones externas, aplicaciones nativas, colaboración, notificaciones externas ni automatización que decide sin confirmación.
+
+[Índice completo de documentación](docs/README.md) · [Registro de cambios](CHANGELOG.md) · [Licencia MIT](LICENSE)

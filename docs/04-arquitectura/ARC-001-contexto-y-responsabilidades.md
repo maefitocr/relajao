@@ -4,7 +4,7 @@
 |---|---|
 | Identificador | ARC-001 |
 | Versión | 1.1 |
-| Estado | **Aprobado** — 18-nov-2026; pendiente versionar esta revisión |
+| Estado | **Aprobado** — 18-nov-2026; versionado en feature_initialDocs, commit 8b65917 |
 | Antecedente | Versión 1.0 registrada como aprobada el 16-nov-2026; revisión 1.1 aprobada explícitamente por el responsable del producto el 18-nov-2026 |
 | Objetivo | Visualizar actores, límites y responsabilidades técnicas mediante C4 niveles 1 y 2 |
 | Alcance | Documentar Discovery, ARC-002 y DEC-001 sin nuevas decisiones arquitectónicas ni implementación |
@@ -27,7 +27,7 @@ Esta matriz adopta los seis criterios del plan del responsable del producto. Sus
 | CA-03 | Cada contenedor tiene una responsabilidad clara | Aprobado — 18-nov-2026 | Contenedores §3: responsabilidad y límite de web, API y base de datos |
 | CA-04 | Las relaciones y dependencias están documentadas | Aprobado — 18-nov-2026 | Contenedores §2–3: R1–R4 con origen, destino, propósito y tecnología; dependencias internas en responsibilities.md y ARC-002 |
 | CA-05 | Los diagramas son consistentes con ARC-002 y DEC-001, o señalan expresamente las decisiones todavía no aprobadas | Aprobado — 18-nov-2026 | Contenedores §4: trazabilidad con arquitectura, F02/F04/F05/F07, S07 y exclusiones; alojamiento concreto pendiente |
-| CA-06 | Ambos diagramas están versionados en el repositorio | Pendiente para esta revisión | Las vistas anteriores ya están en feature_initialDocs. La revisión 1.1 y el nuevo documento de contenedores son cambios locales sin commit |
+| CA-06 | Ambos diagramas están versionados en el repositorio | Cumplido | Ambas vistas disponibles en feature_initialDocs, commit 8b65917 |
 
 ## 3. Coherencia revisada
 
@@ -46,7 +46,7 @@ Esta matriz adopta los seis criterios del plan del responsable del producto. Sus
 | Diagramas Mermaid y descripciones disponibles localmente | Disponible |
 | CA-01 a CA-05 documentados y trazados | Aprobados — 18-nov-2026 |
 | Revisión explícita del responsable del producto | Aprobada — 18-nov-2026 |
-| Revisión 1.1 y nueva vista versionadas en feature_initialDocs | Pendiente; cambios locales sin commit |
+| Revisión 1.1 y nueva vista versionadas en feature_initialDocs | Cumplido — commit 8b65917 |
 | Publicación o integración en main | Fuera de esta entrega local |
 
-El trabajo se realiza siempre sobre la rama feature; main representa lo oficial y terminado. El responsable del producto aprobó explícitamente los últimos cambios el 18-nov-2026. Esta aprobación cubre el contenido; CA-06 sigue pendiente hasta registrar los cambios en Git. La integración en main no es necesaria para cumplir CA-06: ambos diagramas deben quedar versionados en feature.
+El trabajo se realiza siempre sobre la rama feature; main representa lo oficial y terminado. El responsable del producto aprobó explícitamente los últimos cambios el 18-nov-2026. Esta aprobación cubre el contenido; CA-06 está cumplido: los cambios se registraron en el commit 8b65917 de feature_initialDocs. La integración en main no es necesaria para cumplir CA-06: ambos diagramas deben quedar versionados en feature.

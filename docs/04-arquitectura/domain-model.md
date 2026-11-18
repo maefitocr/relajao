@@ -5,13 +5,13 @@
 | Entregable | Plan 2 — Modelo de dominio inicial |
 | Versión | 0.1 |
 | Estado | **Aprobado** — 18-nov-2026; aprobación explícita del responsable del producto |
-| Versionado | Preparado localmente sobre feature_initialDocs; pendiente commit |
+| Versionado | Versionado en feature_initialDocs, commit 8b65917 |
 | Línea base | [Discovery funcional v1.0](../01-discovery/discovery-v1.0.md), cerrado el 15-nov-2026 |
 | Alcance | Conceptos, relaciones, cardinalidades, estados y reglas; independiente de tecnologías, tablas y esquemas físicos |
 
 ## 1. Propósito y convenciones
 
-Describir el negocio antes de implementar código o diseñar persistencia. Los conceptos se derivan de F01–F07; su clasificación como entidad, valor, política o vista es una **propuesta de modelado**, no una nueva regla aprobada. No se fijan agregados, repositorios, tablas ni mecanismos de generación de ocurrencias.
+Describir el negocio antes de implementar código o diseñar persistencia. Los conceptos se derivan de F01–F07; su clasificación como entidad, valor, política o vista pertenece al modelo conceptual aprobado; no añade reglas funcionales ni cierra las preguntas de §7. No se fijan agregados, repositorios, tablas ni mecanismos de generación de ocurrencias.
 
 Las reglas `DM-xx` son referencias locales de este catálogo; no sustituyen los identificadores RN/D/CA del Discovery. Las relaciones describen significado de negocio, no claves foráneas. Toda información pertenece al contexto del titular de una cuenta personal; no se modelan equipos, espacios compartidos ni asignaciones a otras personas (E09).
 
@@ -206,6 +206,6 @@ Los puntos PA-04–09 son preguntas detectadas al modelar, no decisiones nuevas 
 | CA-05 | Área → Proyecto → Tarea y opcionalidad respetan F03 | Aprobado — 18-nov-2026 | §3.1, DM-13–16 y DM-20 |
 | CA-06 | Progreso, cancelación y eliminación lógica documentados | Aprobado — 18-nov-2026 | DM-17–20, DM-25–28; diferencia F03/F06 y PA-04 |
 | CA-07 | Cobertura F01–F07 o análisis adicional identificado | Aprobado — 18-nov-2026 | §6 y §7 |
-| CA-08 | Modelo documentado y versionado sin depender de persistencia | Parcial | Documento conceptual disponible; commit de v0.1 pendiente en feature_initialDocs |
+| CA-08 | Modelo documentado y versionado sin depender de persistencia | Cumplido | Modelo conceptual versionado en feature_initialDocs, commit 8b65917 |
 
-El responsable del producto aprobó explícitamente el modelo v0.1 el 18-nov-2026. La aprobación incluye el modelo conceptual y la identificación de los puntos abiertos de §7; no resuelve esas preguntas ni autoriza implementación. CA-01–CA-07 quedan aprobados; CA-08 permanece parcial hasta registrar esta versión en Git. La integración en main se registra por separado.
+El responsable del producto aprobó explícitamente el modelo v0.1 el 18-nov-2026. La aprobación incluye el modelo conceptual y la identificación de los puntos abiertos de §7; no resuelve esas preguntas ni autoriza implementación. CA-01–CA-07 quedan aprobados; CA-08 está cumplido: esta versión quedó registrada en el commit 8b65917 de feature_initialDocs. La integración en main se registra por separado.

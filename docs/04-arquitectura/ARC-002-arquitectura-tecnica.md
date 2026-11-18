@@ -312,7 +312,7 @@ El diagrama neutral de ARC-001 sigue siendo válido: este documento lo materiali
 | DEC-001 (estilo y stack) aprobada | ✅ 16-nov-2026 |
 | ARC-002 revisado y aprobado | ✅ 16-nov-2026 |
 | Versión original en Git | ✅ Disponible en feature_initialDocs, commit 26fd8ca |
-| Ajustes documentales del 18-nov-2026 | ⏳ Locales, pendientes de commit |
-| PR e integración en main | ⏳ Pendientes; main conserva lo oficial y terminado |
+| Ajustes documentales del 18-nov-2026 | ✅ Versionados en feature_initialDocs, commit 8b65917 |
+| Publicación remota e integración en main | No verificadas en esta revisión local; main conserva lo oficial y terminado |
 
 **La implementación (fase 3) no inicia hasta la autorización explícita del responsable del producto.**

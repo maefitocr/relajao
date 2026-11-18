@@ -4,7 +4,7 @@
 |---|---|
 | Tarea | [ARC-001](ARC-001-contexto-y-responsabilidades.md) · Plan 1 |
 | Versión | 1.0 |
-| Estado | **Aprobado** — 18-nov-2026; pendiente versionar esta revisión |
+| Estado | **Aprobado** — 18-nov-2026; versionado en feature_initialDocs, commit 8b65917 |
 | Base | [ARC-002](ARC-002-arquitectura-tecnica.md) §2, §4 y §8; [DEC-001](DEC-001-stack-y-estilo.md) §2 |
 | Contexto | [C4 nivel 1](architecture-context.md#2-diagrama-de-contexto--c4-nivel-1) |
 

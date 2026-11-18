@@ -5,7 +5,7 @@
 | Estado | **Aprobado** |
 | Versión | 1.0 |
 | Aprobación | 15-nov-2026, dentro del [Discovery funcional v1.0](../01-discovery/discovery-v1.0.md) |
-| Cambios posteriores | Ninguno |
+| Cambios posteriores | Referencias documentales actualizadas el 18-nov-2026; sin cambios funcionales |
 
 ## 1. Objetivo
 
@@ -74,7 +74,7 @@ Apariencia claro/oscuro, preferencias individuales de avisos y restablecimiento 
 
 ## 6. Puntos abiertos
 
-1. **Autenticación y seguridad:** la gestión de cuenta presupone una sesión autenticada; los mecanismos se definirán en la etapa de arquitectura, fuera de este documento.
+1. **Autenticación y seguridad:** la sesión está prevista en [DEC-001](../04-arquitectura/DEC-001-stack-y-estilo.md) (Argon2 y cookie HttpOnly). El [SPEC técnico §17](../06-construccion/SPEC-TECNICO.md#17-decisiones-técnicas-propuestas-y-puntos-abiertos) conserva pendientes las políticas detalladas de acceso y sesión; no se deciden en este documento funcional.
 
 ## 7. Dependencias
 
